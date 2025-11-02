@@ -16,14 +16,14 @@ Projeto acadêmico da disciplina **Tópicos de Programação I**, ministrada pel
 
 ## ▶️ Executar projeto
 
-Você pode executar a aplicação em modo de desenvolvimento (com recarga automática de código) usando:
+Você pode executar a aplicação em modo de desenvolvimento usando:
 
 ```bash
 ./mvnw quarkus:dev
 
 
-**Interface de desenvolvimento (Dev UI)**
+Interface de desenvolvimento (Dev UI)
 http://localhost:8080/q/dev/
 
-**Documentação dos endpoints (Swagger UI)**
+Documentação dos endpoints (Swagger UI)
 http://localhost:8080/q/swagger-ui
