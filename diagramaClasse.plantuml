@@ -1,0 +1,85 @@
+@startuml
+
+class Violao {
+  - id: int
+  - preco: double
+  - modelo: Modelo
+  - cor: Cor
+  - fornecedores: Fornecedor[]
+  - composicoes: ComposicaoViolao[]
+}
+
+class ComposicaoViolao {
+  - id: int
+  - parte: CorpoViolao
+  - material: Material
+}
+
+class Categoria {
+  - id: int
+  - classificacao: String
+}
+
+class Marca {
+  - id: int
+  - nome: String
+}
+
+class Cor {
+  - id: int
+  - nome: String
+}
+
+class Modelo {
+  - id: int
+  - nome: String
+  - anoFabricacao: int
+  - escala: String
+  - marca: Marca
+  - categoria: Categoria
+}
+
+class Pessoa {
+  - id: int
+  - nome: String
+  - telefones: Telefone[]
+  
+}
+
+class Fornecedor {
+  - cnpj: String
+  - razaoSocial: String
+}
+
+class Material {
+  - id: int
+  - descricao: String
+}
+
+class Telefone {
+  - codigoArea: String
+  - numero: String
+}
+
+enum CorpoViolao {
+  + BRACO: int
+  + ESCALA: int
+  + CABECA: int
+  + TRASTE: int
+}
+
+
+Fornecedor -up-|> Pessoa
+
+Violao "*" -- "1" Cor
+Pessoa "1" *-- "*" Telefone
+Categoria "1" -- "*" Modelo
+Marca "1" *-- "*" Modelo
+Modelo "1" -- "*" Violao
+Violao "*" -- "*" Fornecedor
+Violao "1" *-- "*" ComposicaoViolao
+ComposicaoViolao "*" -- "1" Material
+ComposicaoViolao "*" -- "1" CorpoViolao
+
+@enduml
+  
